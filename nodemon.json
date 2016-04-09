@@ -1,0 +1,8 @@
+{
+  "events" : {
+    "restart": "tsconfig-lint"
+  },
+  "watch" : [
+    "./build"
+  ]
+}
