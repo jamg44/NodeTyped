@@ -30,11 +30,14 @@ Example:
 
 **Make sure you have node version >= 4.0**
 
-### Install dependencies
+### Clone and Install dependencies
 
-    npm install
+    git clone https://github.com/jamg44/NodeTyped.git projectname
+
+    cd projectname && npm install
 
     npm install -g typescript
+
 
 ## Develop
 
