@@ -1,11 +1,11 @@
 {
-  "name": "prueba2",
+  "name": "nodetyped",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "clean": "rm -rf build node_modules typings",
     "start": "node ./build/www.js",
-    "watch": "tsc && DEBUG=prueba2:* concurrently -k 'tsc --watch' 'nodemon --delay 2000ms'",
+    "watch": "tsc && DEBUG=nodetyped:* concurrently -k 'tsc --watch' 'nodemon --delay 2000ms'",
     "lint": "tsconfig-lint",
     "postinstall": "typings install"
   },
