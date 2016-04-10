@@ -1,5 +1,5 @@
 
-Express, Typescript, SASS, EJS
+Express, Typescript, SASS, EJS, Bootstrap 4, TSLint
 
 
 npm install -g typescript
@@ -23,3 +23,10 @@ let router = require('express').Router();
 // other modules can use import (core api, our modules)
 import { readFile } from '../lib/nodeApi';
 import { findConfigFile } from '../lib/utils';
+
+
+Change the project name in package.json
+  "name": "prueba2", <-----
+  ...
+  "watch": "tsc && DEBUG=prueba2:* ... <-----
+

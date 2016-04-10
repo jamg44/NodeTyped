@@ -24,7 +24,7 @@
         "no-eval": true,
         "no-internal-module": true,
         "no-trailing-whitespace": true,
-        "no-var-keyword": true,
+        "no-var-keyword": false,
         "one-line": [
             true,
             "check-open-brace",

@@ -4,16 +4,18 @@
  * Module dependencies.
  */
 
+// our modules can use import
 import * as app from './app';
-
+// node_modules must use require
 let debug = require('debug')('prueba2:server');
+// core modules can use import
 import * as http from 'http';
 
 /**
  * Get port from environment and store in Express.
  */
 
-let port = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env['PORT'] || '3000');
 app.set('port', port);
 
 /**
@@ -83,9 +85,9 @@ function onError(error) {
  */
 
 function onListening() {
-  let addr = server.address();
-  let bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on11112 ' + bind);
+  let address = server.address();
+  let bind = typeof address === 'string'
+    ? 'pipe ' + address
+    : 'port ' + address.port;
+  debug('Listening on ' + bind);
 }

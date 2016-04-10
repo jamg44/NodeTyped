@@ -25,7 +25,14 @@ app.use(require('node-sass-middleware')({
     indentedSyntax: false,
     sourceMap: true
 }));
+
+// static files
 app.use(express.static(path.join(__dirname, '../public')));
+
+// node_modules dependencies
+app.use('/nm/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
+app.use('/nm/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
+app.use('/nm/tether', express.static(path.join(__dirname, '../node_modules/tether/dist')));
 
 //
 // App routes
@@ -33,41 +40,25 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/',        require('./routes/index'));
 app.use('/users',   require('./routes/users'));
 
-//
-// catch 404 and forward to error handler
-///////////////////////////////////////////////////////////
-app.use(function(req, res, next) {
-    next({
-        message: 'Not Found',
-        status: 404,
-        stack: (new Error()).stack
-    });
-});
+// catch not handled and return 404
+app.use((req, res, next) => next({ message: 'Not Found', status: 404, stack: (new Error()).stack }) );
 
 //
-// error handlers
+// error handlers (dev / prod)
 ///////////////////////////////////////////////////////////
 
-// development error handler
-// will print stacktrace
+// development error handler - will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use((err, req, res, next) => {
         res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+        res.render('error', { message: err.message, error: err });
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+// production error handler - no stack-traces leaked to user
+app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+    res.render('error', { message: err.message, error: {} });
 });
 
 export = app;

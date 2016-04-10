@@ -1,14 +1,15 @@
 'use strict';
 
 // node_modules must use require
-let router = require('express').Router();
+let express = require('express');
+let router = express.Router();
 
 // other modules can use import (core api, our modules)
 import { readFile } from '../lib/nodeApi';
 import { findConfigFile } from '../lib/utils';
 
 router.get('/', async function(req, res, next) {
-  let title = 'Node Typed';
+  let title = 'NodeTyped Express';
   try {
     let file = findConfigFile('package.json');
     let data = await readFile(file, 'utf-8');
