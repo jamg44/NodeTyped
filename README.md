@@ -10,9 +10,10 @@
 [Bootstrap 4](http://v4-alpha.getbootstrap.com/),
 [TSLint](https://palantir.github.io/tslint/).
 
-> Simple npm setup and maintenance, without grunt/gulp/webpack/...
+* Simple npm setup and maintenance, without grunt/gulp/webpack/...
 
-Support for async/await:
+* Support for async/await:
+
 
     async function(req, res, next) {
         let title = 'NodeTyped Express';

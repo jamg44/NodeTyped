@@ -1,7 +1,9 @@
 {
   "name": "nodetyped",
   "version": "0.0.1",
-  "private": true,
+  "author": "Javier Miguel Gonzalez",
+  "license": "MIT",
+  "description": "A Node.js starter kit featuring Secuential Asynchrony (async/await), Express (Routing middlewares, Web, Api), Typescript, SCSS, EJS, Nodemon, Bootstrap 4, TSLint.",
   "scripts": {
     "clean": "rm -rf build node_modules typings",
     "start": "node ./build/www.js",
@@ -9,6 +11,26 @@
     "lint": "tsconfig-lint",
     "postinstall": "typings install"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamg44/nodetyped.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "async",
+    "await",
+    "typescript",
+    "scss",
+    "ejs",
+    "nodemon",
+    "bootstrap",
+    "tslint"
+  ],
+  "bugs": {
+    "url": "https://github.com/jamg44/nodetyped/issues"
+  },
+  "homepage": "https://github.com/jamg44/nodetyped#readme",
   "main": "build/www.js",
   "dependencies": {
     "body-parser": "^1.15.0",
