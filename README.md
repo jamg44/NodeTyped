@@ -44,6 +44,11 @@ You can start the server in development mode (linter included) with:
 
     npm run watch
 
+Open the browser at:
+ * http://localhost:3000
+ * http://localhost:3000/users
+ * http://localhost:3000/apiv1/users
+
 As you save in your editor, the compiler will rebuild and restart the server.
 
 ### Other commands
@@ -75,6 +80,7 @@ Run:
 
 When requiring from _node_modules_ you must use require:
 
+    // require from /node_modules
     let express = require('express');
 
 With other module types you can use import (node api, created modules):
@@ -88,6 +94,14 @@ To change project name update package.json
     "name": "project_name", <-----
     ...
     "watch": "tsc && DEBUG=project_name2:* ... <-----
+
+
+## TODO
+
+ * Add models (mongoose, sequelize)
+ * Add karma/jasmine
+ * Add test coverage report
+
 
 # License
  [MIT](/LICENSE)

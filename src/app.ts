@@ -35,10 +35,15 @@ app.use('/nm/jquery', express.static(path.join(__dirname, '../node_modules/jquer
 app.use('/nm/tether', express.static(path.join(__dirname, '../node_modules/tether/dist')));
 
 //
-// App routes
+// API V1 routes
 ///////////////////////////////////////////////////////////
-app.use('/',        require('./routes/index'));
-app.use('/users',   require('./routes/users'));
+app.use('/apiv1/users',   require('./apiv1/users'));
+
+//
+// Web routes
+///////////////////////////////////////////////////////////
+app.use('/',        require('./web/index'));
+app.use('/users',   require('./web/users'));
 
 // catch not handled and return 404
 app.use((req, res, next) => next({ message: 'Not Found', status: 404, stack: (new Error()).stack }) );
@@ -51,14 +56,26 @@ app.use((req, res, next) => next({ message: 'Not Found', status: 404, stack: (ne
 if (app.get('env') === 'development') {
     app.use((err, req, res, next) => {
         res.status(err.status || 500);
-        res.render('error', { message: err.message, error: err });
+        if (isApi(req)) {
+            res.json({ success: false, error: err });
+        } else {
+            res.render('error', { message: err.message, error: err });
+        }
     });
 }
 
 // production error handler - no stack-traces leaked to user
 app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    res.render('error', { message: err.message, error: {} });
+    if (isApi(req)) {
+        res.json({ success: false, error: err });
+    } else {
+        res.render('error', {message: err.message, error: {}});
+    }
 });
+
+function isApi(req) {
+    return req.url.indexOf('/apiv1/') === 0;
+}
 
 export = app;
