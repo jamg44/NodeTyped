@@ -26,7 +26,7 @@ Example:
         }
     }
 
-## Requites
+## Requirements
 
 **Make sure you have node version >= 4.0**
 
