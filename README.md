@@ -12,8 +12,9 @@
 
 * Simple npm setup and maintenance, without grunt/gulp/webpack/...
 
-* Support for async/await:
+* Support for async/await
 
+Example:
 
     async function(req, res, next) {
         let title = 'NodeTyped Express';
