@@ -1,7 +1,7 @@
 
 # NodeTyped
 
-> A Node.js starter kit featuring **Secuential Asynchrony (async/await)**,
+> A Node.js starter kit featuring ES6 with **Secuential Asynchrony (async/await)**,
 [Express](http://expressjs.com/) (Routing middlewares, Web, Api),
 [Typescript](http://www.typescriptlang.org/),
 [SCSS](http://sass-lang.com/),
@@ -19,7 +19,7 @@ Example:
     async function(req, res, next) {
         let title = 'NodeTyped Express';
         try {
-            let data = await readFile(file, 'utf-8');
+            let data = await readFile(file, 'utf-8'); // no callbacks!
             res.render('index', { title: title, dump: data });
         } catch (e) {
             next(e);
@@ -32,12 +32,23 @@ Example:
 
 ### Clone and Install dependencies
 
-    git clone https://github.com/jamg44/NodeTyped.git projectname
+```bash
+# clone the repo
+# --depth 1 removes all but one .git commit history
+git clone --depth 1 https://github.com/jamg44/NodeTyped.git projectname
 
-    cd projectname && npm install
+# change directory to your new project
+cd projectname
 
-    npm install -g typescript
+# add required global libraries
+npm install typings tyepscript -g
 
+# install the repo dependencies with npm
+npm install
+
+# start the server
+npm run watch
+```
 
 ## Develop
 
@@ -65,16 +76,11 @@ Clean temp folders:
 
     npm run clean
 
-## Production
+## Production / Integration
 
-Deploy folders to server:
+To run the project in a server you'll want to run the built code instead src version.
 
- * /build
- * /public
- * /views
-
-Run:
-
+    # deploy the repo to server and run
     npm install
     npm start
 
@@ -104,6 +110,7 @@ To change project name update package.json
  * Add models (mongoose, sequelize)
  * Add karma/jasmine
  * Add test coverage report
+ * Yeoman
 
 
 # License
