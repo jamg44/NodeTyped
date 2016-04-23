@@ -111,6 +111,7 @@ To change project name update package.json
  * Add karma/jasmine
  * Add test coverage report
  * Yeoman
+ * User system & basic panel
 
 
 # License
