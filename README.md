@@ -108,10 +108,11 @@ To change project name update package.json
 ## TODO
 
  * Add karma/jasmine
+ * User system (register, login, etc)
  * Add sequelize
  * Add test coverage report
  * Yeoman
- * User system & basic panel
+ * Basic panel
 
 
 # License
