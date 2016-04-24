@@ -107,8 +107,8 @@ To change project name update package.json
 
 ## TODO
 
- * Add models (mongoose, sequelize)
  * Add karma/jasmine
+ * Add sequelize
  * Add test coverage report
  * Yeoman
 

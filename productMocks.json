@@ -1,0 +1,11 @@
+[
+{"location": {"coordinates":[-73.856077,40.848447], "type": "Point"}, "name": "Morris Park Bake Shop"},
+{"location": {"coordinates":[-73.961704, 40.662942], "type": "Point"}, "name": "Wendy'S"},
+{"location": {"coordinates":[-73.98241999999999, 40.579505], "type": "Point"}, "name": "Riviera Caterer"},
+{"location": {"coordinates":[-73.8601152, 40.7311739], "type": "Point"}, "name": "Tov Kosher Kitchen"},
+{"location": {"coordinates":[-73.8803827, 40.7643124], "type": "Point"}, "name": "Brunos On The Boulevard"},
+{"location": {"coordinates":[-73.98513559999999, 40.7676919], "type": "Point"}, "name": "Dj Reynolds Pub And Restaurant"},
+{"location": {"coordinates":[-73.9068506, 40.6199034], "type": "Point"}, "name": "Wilken'S Fine Food"},
+{"location": {"coordinates":[-74.00528899999999, 40.628886], "type": "Point"}, "name": "Regina Caterers"},
+{"location": {"coordinates":[-73.9482609, 40.6408271], "type": "Point"}, "name": "Taste The Tropics Ice Cream"}
+]

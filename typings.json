@@ -3,6 +3,7 @@
     "express": "registry:dt/express#4.0.0+20160317120654",
     "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
     "mime": "registry:dt/mime#0.0.0+20160316155526",
+    "mongoose": "registry:dt/mongoose#3.8.5+20160316155526",
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#292e56b5acdb2157c3f53d70a77d34d64ba5fe2f",
     "serve-static": "registry:dt/serve-static#0.0.0+20160317120654"
   }

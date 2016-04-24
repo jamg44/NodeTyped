@@ -26,24 +26,31 @@ app.use(require('node-sass-middleware')({
     sourceMap: true
 }));
 
-// static files
+//
+// connect to database and register models
+///////////////////////////////////////////////////////////
+import * as db from './models/mongooseModels';
+
+//
+// serve static files
+///////////////////////////////////////////////////////////
 app.use(express.static(path.join(__dirname, '../public')));
 
-// node_modules dependencies
+// web dependencies from node_modules
 app.use('/nm/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
 app.use('/nm/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
 app.use('/nm/tether', express.static(path.join(__dirname, '../node_modules/tether/dist')));
 
 //
-// API V1 routes
+// serve API V1 routes
 ///////////////////////////////////////////////////////////
-app.use('/apiv1/users',   require('./apiv1/users'));
+app.use('/apiv1/products', require('./routes/apiv1/products'));
 
 //
-// Web routes
+// serve Web routes
 ///////////////////////////////////////////////////////////
-app.use('/',        require('./web/index'));
-app.use('/users',   require('./web/users'));
+app.use('/',            require('./routes/index'));
+app.use('/products',    require('./routes/products'));
 
 // catch not handled and return 404
 app.use((req, res, next) => next({ message: 'Not Found', status: 404, stack: (new Error()).stack }) );

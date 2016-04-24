@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/nm/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nm/tether/css/tether.min.css">
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <div class="panel">
+      <h3>Loading database data without callbacks!</h3>
+      <table class="table table-hover table-condensed">
+        <thead><tr><th>Name</th><th>Location</th></th></thead>
+        <tbody>
+          <% products.forEach( function(product) { %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.location.coordinates %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="/nm/jquery/jquery.min.js"></script>
+    <script src="/nm/tether/js/tether.min.js"></script>
+    <script src="/nm/bootstrap/js/bootstrap.js"></script>
+  </body>
+</html>

@@ -9,8 +9,33 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <p>Example of Secuential Asynchrony, loading package.json without callbacks!</p>
-    <pre><%= dump %></pre>
+    <p>Example of Secuential Asynchrony, </p>
+
+    <div class="panel">
+      <h3>Mongoose</h3>
+      <ol>
+        <li>Start mongodb</li>
+        <li>Run 'npm run loadMocks'</li>
+        <li><a href="products">Mongoose example</a></li>
+      </ol>
+    </div>
+
+    <div class="panel">
+      <h3>API</h3>
+      <p><a href="apiv1/products">API example</a></p>
+    </div>
+
+    <div class="panel">
+      <h3>Loading a file without callbacks!</h3>
+      <pre><%= file %></pre>
+    </div>
+
+    <div>
+      <h3>Recommendations</h3>
+      <ul>
+        <li>All functions must return promises to use them with await</li>
+      </ul>
+    </div>
 
     <script src="/nm/jquery/jquery.min.js"></script>
     <script src="/nm/tether/js/tether.min.js"></script>

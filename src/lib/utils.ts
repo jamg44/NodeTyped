@@ -3,7 +3,7 @@
 import * as path from 'path';
 import {existsSync} from './nodeApi';
 
-let findConfigFile = (configFileName, searchPath?) => {
+let findConfigFileSync = (configFileName, searchPath?) => {
     searchPath = searchPath || __dirname;
     while (true) {
         let fileName = path.join(searchPath, configFileName);
@@ -20,5 +20,5 @@ let findConfigFile = (configFileName, searchPath?) => {
 };
 
 export {
-    findConfigFile
+    findConfigFileSync
 };
