@@ -13,4 +13,24 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+/* Find products near a point (meters) */
+router.get('/near/:meters([0-9]+)/lon/:lon/lat/:lat', async function(req, res, next) {
+  try {
+    let meters = parseFloat(req.params.meters);
+    let longitude = parseFloat(req.params.lon);
+    let latitude = parseFloat(req.params.lat);
+    let rows = await Product.find({
+      location: {
+        $nearSphere: {
+          $geometry: { type: 'Point', coordinates: [ longitude, latitude ] },
+          $maxDistance: meters
+        }
+      }
+    });
+    res.json({ success: true, rows });
+  } catch (err) {
+    next(err);
+  }
+});
+
 export = router;

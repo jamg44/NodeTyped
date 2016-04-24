@@ -10,6 +10,8 @@ let schema = mongoose.Schema({
     }
 });
 
+schema.index({location: '2dsphere'});
+
 /**
  *
  * @param filter Object with filter conditions
