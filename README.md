@@ -146,6 +146,7 @@ let readFile = function(file, encoding) => {
 ## Roadmap (TODO)
 
  * Add karma/jasmine
+ * API authentication with [JWT](https://jwt.io/)
  * Add SSL
  * Add cluster
  * User system (register, login, etc)
