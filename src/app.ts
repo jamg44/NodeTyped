@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(require('node-sass-middleware')({
     src: path.join(__dirname, '../public'),
@@ -37,23 +37,27 @@ import * as db from './models/mongooseModels';
 app.use(express.static(path.join(__dirname, '../public')));
 
 // web dependencies from node_modules
-app.use('/nm/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
-app.use('/nm/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
-app.use('/nm/tether', express.static(path.join(__dirname, '../node_modules/tether/dist')));
+app.use('/nm/bootstrap',    express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
+app.use('/nm/jquery',       express.static(path.join(__dirname, '../node_modules/jquery/dist')));
+app.use('/nm/tether',       express.static(path.join(__dirname, '../node_modules/tether/dist')));
 
 //
 // serve API V1 routes
 ///////////////////////////////////////////////////////////
-app.use('/apiv1/products', require('./routes/apiv1/products'));
+app.use('/apiv1/products',  require('./routes/apiv1/products'));
 
 //
 // serve Web routes
 ///////////////////////////////////////////////////////////
-app.use('/',            require('./routes/index'));
-app.use('/products',    require('./routes/products'));
+app.use('/',                require('./routes/index'));
+app.use('/products',        require('./routes/products'));
 
 // catch not handled and return 404
-app.use((req, res, next) => next({ message: 'Not Found', status: 404, stack: (new Error()).stack }) );
+app.use((req, res, next) => next({
+    message: 'Not Found',
+    status: 404,
+    stack: (new Error()).stack
+}));
 
 //
 // error handlers (dev / prod)
@@ -64,9 +68,9 @@ if (app.get('env') === 'development') {
     app.use((err, req, res, next) => {
         res.status(err.status || 500);
         if (isApi(req)) {
-            res.json({ success: false, error: err });
+            res.json({success: false, error: err});
         } else {
-            res.render('error', { message: err.message, error: err });
+            res.render('error', {message: err.message, error: err});
         }
     });
 }
@@ -75,7 +79,7 @@ if (app.get('env') === 'development') {
 app.use((err, req, res, next) => {
     res.status(err.status || 500);
     if (isApi(req)) {
-        res.json({ success: false, error: err });
+        res.json({success: false, error: err});
     } else {
         res.render('error', {message: err.message, error: {}});
     }

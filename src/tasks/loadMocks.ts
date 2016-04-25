@@ -4,7 +4,9 @@ import {conn, Product} from '../models/mongooseModels';
 import {readFile} from '../lib/nodeApi';
 import {findConfigFileSync} from '../lib/utils';
 
-conn.once('open', () => { main().then(() => conn.disconnect()); });
+conn.once('open', () => {
+    main().then(() => conn.disconnect());
+});
 
 async function main() {
     try {

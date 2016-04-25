@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
     <link rel="stylesheet" href="/nm/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/nm/tether/css/tether.min.css">
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <p>Example of Secuential Asynchrony, </p>
+</head>
+<body>
 
-    <div class="panel">
-      <h3>Mongoose</h3>
-      <ol>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<p>Example of Secuential Asynchrony, </p>
+
+<div class="panel">
+    <h3>Mongoose</h3>
+    <ol>
         <li>Start mongodb</li>
         <li>Run 'npm run loadMocks'</li>
         <li><a href="products">Mongoose example</a></li>
-      </ol>
-    </div>
+    </ol>
+</div>
 
-    <div class="panel">
-      <h3>API</h3>
-      <p>API examples:</p>
-      <ul>
+<div class="panel">
+    <h3>API</h3>
+    <p>API examples:</p>
+    <ul>
         <li><a href="apiv1/products">List of products</a></li>
         <li><a href="apiv1/products/near/8000/lon/-73.93414657/lat/40.82302903">List of products near a point</a></li>
-      </ul>
-    </div>
+    </ul>
+</div>
 
-    <div class="panel">
-      <h3>Loading a file without callbacks!</h3>
-      <pre><%= file %></pre>
-    </div>
+<div class="panel">
+    <h3>Loading a file without callbacks!</h3>
+    <pre><%= file %></pre>
+</div>
 
-    <div>
-      <h3>Recommendations</h3>
-      <ul>
-        <li>All functions must return promises to use them with await</li>
-      </ul>
-    </div>
+<!-- load scripts -->
+<script src="/nm/jquery/jquery.min.js"></script>
+<script src="/nm/tether/js/tether.min.js"></script>
+<script src="/nm/bootstrap/js/bootstrap.js"></script>
 
-    <script src="/nm/jquery/jquery.min.js"></script>
-    <script src="/nm/tether/js/tether.min.js"></script>
-    <script src="/nm/bootstrap/js/bootstrap.js"></script>
-  </body>
+</body>
 </html>
