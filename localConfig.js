@@ -1,3 +1,8 @@
 'use strict';
 
-module.exports.MongodbConnection = 'mongodb://localhost/test';
+module.exports.MongodbConnection = {
+  uri: 'mongodb://localhost/bottle',
+  options: {
+
+  }
+};

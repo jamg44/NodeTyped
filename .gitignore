@@ -32,6 +32,3 @@ npm-debug.log
 # Using SASS, ignore css
 public/stylesheets/**/*.css
 public/stylesheets/**/*.map
-
-# typings
-typings
