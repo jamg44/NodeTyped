@@ -1,20 +1,33 @@
 'use strict';
 
-import {Product} from '../../models/Product';
-let router = require('express').Router();
+let Product = require('../../models/Product');
+const router = require('express').Router();
 
-/* GET products listing. */
-router.get('/', async function (req, res, next) {
+router.get('/', get);
+/**
+ * GET /
+ * @param req
+ * @param res
+ * @param next
+ */
+export async function get(req, res, next) {
     try {
         let rows = await Product.list({}, 0, null, null, 'name location');
         res.json({success: true, rows});
     } catch (err) {
         next(err);
     }
-});
+}
 
-/* Find products near a point (meters) */
-router.get('/near/:meters([0-9]+)/lon/:lon/lat/:lat', async function (req, res, next) {
+router.get('/near/:meters([0-9]+)/lon/:lon/lat/:lat', getNear);
+/**
+ * GET /near/M/lon/LON/lat/LAT
+ * Find products near a point (meters)
+ * @param req
+ * @param res
+ * @param next
+ */
+export async function getNear (req, res, next) {
     try {
         let meters = parseFloat(req.params.meters);
         let longitude = parseFloat(req.params.lon);
@@ -31,6 +44,6 @@ router.get('/near/:meters([0-9]+)/lon/:lon/lat/:lat', async function (req, res, 
     } catch (err) {
         next(err);
     }
-});
+}
 
-export = router;
+export {router};

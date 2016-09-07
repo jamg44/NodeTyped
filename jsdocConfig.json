@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": [
+      "./build",
+      "./build/lib",
+      "./build/models",
+      "./build/routes",
+      "./build/tasks"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": false
+    }
+  },
+  "opts": {
+    "readme": "README.md",
+    "destination": "doc"
+  }
+}
