@@ -9,7 +9,10 @@
 [EJS](https://github.com/mde/ejs),
 [Nodemon](http://nodemon.io/),
 [Bootstrap 4](http://v4-alpha.getbootstrap.com/),
-[TSLint](https://palantir.github.io/tslint/).
+[TSLint](https://palantir.github.io/tslint/),
+[Jasmine](http://jasmine.github.io/),
+[JsDoc](http://usejsdoc.org/),
+.
 
 * Simple npm setup and maintenance, without grunt/gulp/webpack/...
 
@@ -90,7 +93,21 @@ npm run lint
 
 Clean temp folders:
 
-    npm run clean
+```bash
+npm run clean
+```
+
+Run the tests:
+
+```bash
+npm test
+```
+
+Generate docs, the output will be in /doc folder:
+
+```bash
+npm run doc
+```
 
 ## Production / Integration
 
@@ -145,7 +162,6 @@ let readFile = function(file, encoding) => {
 
 ## Roadmap (TODO)
 
- * Add karma/jasmine
  * API authentication with [JWT](https://jwt.io/)
  * Add SSL
  * Add cluster

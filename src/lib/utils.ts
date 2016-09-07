@@ -3,6 +3,8 @@
 import * as path from 'path';
 import {existsSync} from './nodeApi';
 
+let add = (a, b) => a + b;
+
 let findConfigFileSync = (configFileName, searchPath?) => {
     searchPath = searchPath || __dirname;
     while (true) {
@@ -20,5 +22,5 @@ let findConfigFileSync = (configFileName, searchPath?) => {
 };
 
 export {
-    findConfigFileSync
+    findConfigFileSync, add
 };

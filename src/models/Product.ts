@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Product model
+ * @module Product
+ */
+
 let mongoose = require('mongoose');
 
 let schema = mongoose.Schema({
@@ -13,7 +18,8 @@ let schema = mongoose.Schema({
 schema.index({location: '2dsphere'});
 
 /**
- *
+ * List of products
+ * @method list
  * @param filter Object with filter conditions
  * @param skip Number of rows skipped
  * @param limit Number of rows
@@ -38,6 +44,4 @@ schema.statics.list = function(filter?: any,
 
 var Product = mongoose.model('Product', schema);
 
-export {
-    Product, schema as productSchema
-};
+export = Product;

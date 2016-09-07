@@ -1,7 +1,7 @@
 'use strict';
 
-let router = require('express').Router(); // node_modules must use require
-import {Product} from '../models/mongooseModels';
+const router = require('express').Router(); // node_modules must use require
+let Product = require('../models/Product');
 
 router.get('/', async function (req, res, next) {
     let title = 'Mongoose examples';

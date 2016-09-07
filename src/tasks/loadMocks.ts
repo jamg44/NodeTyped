@@ -1,6 +1,7 @@
 'use strict';
 
-import {conn, Product} from '../models/mongooseModels';
+import * as Product from '../models/Product';
+import {conn} from '../lib/connectMongoose';
 import {readFile} from '../lib/nodeApi';
 import {findConfigFileSync} from '../lib/utils';
 
