@@ -46,9 +46,6 @@ git clone --depth 1 https://github.com/jamg44/NodeTyped.git projectname
 # change directory to your new project
 cd projectname
 
-# add required global libraries
-npm install typescript@2.0.2 -g
-
 # install the repo dependencies with npm
 npm install
 
