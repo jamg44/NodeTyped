@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rm -rf build node_modules",
     "start": "tsc && node ./build/www.js",
-    "watch": "tsc && DEBUG=nodetyped:* concurrently -kr 'tsc --watch' 'nodemon --delay 2000ms'",
+    "dev": "concurrently 'tsc --watch' 'sleep 5;DEBUG=nodetyped:* nodemon'",
     "loadMocks": "tsc && node ./build/tasks/loadMocks.js",
     "lint": "tsconfig-lint",
     "test": "tsc && concurrently -kr 'tsc --watch' 'nodemon --delay 2000ms node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json'",
@@ -22,7 +22,8 @@
     "typescript",
     "mongoose",
     "express",
-    "async", "await",
+    "async",
+    "await",
     "scss",
     "ejs",
     "nodemon",
@@ -53,13 +54,13 @@
     "@types/express": "^4.0.32",
     "@types/jasmine": "^2.2.33",
     "@types/node": "^6.0.38",
-    "concurrently": "^2.2.0",
+    "concurrently": "^3.4.0",
     "jasmine": "2.4.1",
     "jsdoc": "^3.4.0",
+    "nodemon": "^1.11.0",
     "rewire": "^2.5.2",
     "tsconfig-lint": "^0.11.0",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.2",
-    "nodemon": "1.11.0"
+    "typescript": "^2.0.2"
   }
 }

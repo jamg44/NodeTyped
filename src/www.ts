@@ -8,7 +8,7 @@
 import * as app from './app';
 
 // node_modules must use require
-let debug = require('debug')('prueba2:server');
+let debug = require('debug')('nodetyped:server');
 
 // core modules can use import
 import * as http from 'http';

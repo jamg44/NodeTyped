@@ -50,7 +50,7 @@ cd projectname
 npm install
 
 # start the server
-npm run watch
+npm run dev
 ```
 
 If you want to use mongoose models, start mongodb, check localConfig.js and:
@@ -67,7 +67,7 @@ npm run loadMocks
 You can start the server in development mode (linter included) with:
 
 ```bash
-npm run watch
+npm run dev
 ```
 
 Open the browser at:
@@ -138,7 +138,7 @@ import { findConfigFile } from '../lib/utils';
 ```bash
 "name": "project_name", <-----
 ...
-"watch": "tsc && DEBUG=project_name2:* ... <-----
+"dev": "tsc && DEBUG=project_name2:* ... <-----
 ```
 
 
