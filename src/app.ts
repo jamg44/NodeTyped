@@ -30,6 +30,7 @@ app.use(require('node-sass-middleware')({
 // connect to database and register models
 ///////////////////////////////////////////////////////////
 require('./lib/connectMongoose');
+require('./models/User');
 
 //
 // serve static files
