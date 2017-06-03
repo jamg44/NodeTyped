@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports.MongodbConnection = {
-  uri: 'mongodb://localhost/bottle',
+  uri: 'mongodb://localhost/nodetyped',
   options: {
 
   }

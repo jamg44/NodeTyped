@@ -5,6 +5,7 @@
 [Express](http://expressjs.com/) (Routing middlewares, Web, Api),
 [Typescript](http://www.typescriptlang.org/),
 [Mongoose](http://mongoosejs.com/),
+[MongooseClass](https://github.com/jamg44/mongoose-class),
 [SCSS](http://sass-lang.com/),
 [EJS](https://github.com/mde/ejs),
 [Nodemon](http://nodemon.io/),
@@ -18,9 +19,9 @@
 
 * Support for async/await
 
-Example:
+Example middleware:
 
-```bash
+```javascript
 async function(req, res, next) {
     let title = 'NodeTyped Express';
     try {
@@ -29,6 +30,29 @@ async function(req, res, next) {
     } catch (e) {
         next(e);
     }
+}
+```
+
+Example model:
+
+```javascript
+@Model({})
+export class User extends MongooseModel {
+
+    @Column({ type: String, index: true })
+    name: string;
+
+    @Column(Number)
+    age: number;
+
+    static list(): Promise<any> {
+        return this.find().exec();
+    }
+
+    greet() {
+        return `Hello I'm ${this.name}`;
+    }
+
 }
 ```
 
