@@ -30,6 +30,7 @@ app.use(require('node-sass-middleware')({
 // connect to database and register models
 ///////////////////////////////////////////////////////////
 require('./lib/connectMongoose');
+require('./models/Product');
 require('./models/User');
 
 //
@@ -46,6 +47,7 @@ app.use('/nm/tether',       express.static(path.join(__dirname, '../node_modules
 // serve API V1 routes
 ///////////////////////////////////////////////////////////
 app.use('/apiv1/products', require('./routes/apiv1/products').router);
+app.use('/apiv1/users',    require('./routes/apiv1/users').router);
 
 //
 // serve Web routes

@@ -1,16 +1,14 @@
 'use strict';
 
 /**
- * Product model
- * @module Product
+ * User model
+ * @module User
  */
 
-import { Model, Column, MongooseModel } from '../lib/mongooseClass';
+import { Model as MongooseModel } from 'mongoose';
+import { Model, Column } from 'mongoose-class';
 
-@Model({
-    name: { type: String, index: true },
-    age: Number
-})
+@Model({})
 export class User extends MongooseModel {
 
     @Column({ type: String, index: true })
@@ -19,29 +17,20 @@ export class User extends MongooseModel {
     @Column(Number)
     age: number;
 
-    static list(callback?: Function) {
-        return this.find().exec(callback);
+    static list(filter?: any,
+        skip?: number, limit?: number,
+        sort?: string, select?: string
+    ): Promise<any> {
+        let query = this.find(filter);
+        query.sort(sort);
+        query.skip(skip);
+        query.limit(limit);
+        query.select(select);
+        return query.exec();
     }
 
-    saluda() {
-        return 'Hola soy ' + this.name;
+    greet() {
+        return `Hello I'm ${this.name}`;
     }
 
 }
-
-const user = new User({ name: 'Pepe', age: 34, nosale: 33});
-
-User.find({}).exec((err, data) => {
-    console.log('find', err, data);
-});
-
-User.list().then(users => {
-    console.log('list', users);
-});
-
-console.log(user);
-console.log(user.saluda());
-//console.log(User);
-//var User = mongoose.model('User', schema);
-
-//export = User;
