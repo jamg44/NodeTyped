@@ -43,6 +43,24 @@ app.use('/nm/bootstrap',    express.static(path.join(__dirname, '../node_modules
 app.use('/nm/jquery',       express.static(path.join(__dirname, '../node_modules/jquery/dist')));
 app.use('/nm/popper.js',       express.static(path.join(__dirname, '../node_modules/popper.js/dist')));
 
+// Require Nuxt And Builder modules
+console.log('process.env.DEBUG', process.env.DEBUG);
+process.env.DEBUG = 'nuxt:*';
+const { Nuxt, Builder } = require('nuxt');
+
+// Require nuxt config
+const config = require('../nuxt.config.js');
+
+// Create a new nuxt instance
+const nuxt = new Nuxt(config);
+
+// Enable live build & reloading on dev
+if (nuxt.options.dev) {
+  new Builder(nuxt).build();
+}
+
+// We can use nuxt.render(req, res) or nuxt.renderRoute(route, context)
+
 //
 // serve API V1 routes
 ///////////////////////////////////////////////////////////
@@ -54,6 +72,11 @@ app.use('/apiv1/users',    require('./routes/apiv1/users').router);
 ///////////////////////////////////////////////////////////
 app.use('/',                require('./routes/index'));
 app.use('/products',        require('./routes/products'));
+
+// Give nuxt middleware to express
+app.use(nuxt.render);
+
+// next middlewares are not used, nuxt will handle 404 errors first
 
 // catch not handled and return 404
 app.use((req, res, next) => next({

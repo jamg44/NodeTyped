@@ -34,3 +34,5 @@ public/stylesheets/**/*.css
 public/stylesheets/**/*.map
 
 doc
+
+.nuxt
