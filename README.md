@@ -25,7 +25,7 @@ Example middleware:
 async function(req, res, next) {
     let title = 'NodeTyped Express';
     try {
-        let data = await readFile(file, 'utf-8'); // no callbacks!
+        let data = await readFile(file, 'utf-8'); // no callbacks
         res.render('index', { title: title, dump: data });
     } catch (e) {
         next(e);
@@ -56,9 +56,11 @@ export class User extends MongooseModel {
 }
 ```
 
-## Requirements
+## Getting started
 
 **Make sure you have node version >= 4.0**
+
+Recomended node.js version 8.x
 
 ### Clone and Install dependencies
 

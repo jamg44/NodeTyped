@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // web dependencies from node_modules
 app.use('/nm/bootstrap',    express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
 app.use('/nm/jquery',       express.static(path.join(__dirname, '../node_modules/jquery/dist')));
-app.use('/nm/tether',       express.static(path.join(__dirname, '../node_modules/tether/dist')));
+app.use('/nm/popper.js',       express.static(path.join(__dirname, '../node_modules/popper.js/dist')));
 
 //
 // serve API V1 routes
