@@ -19,12 +19,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(require('node-sass-middleware')({
-    src: path.join(__dirname, '../public'),
-    dest: path.join(__dirname, '../public'),
-    indentedSyntax: false,
-    sourceMap: true
-}));
 
 //
 // connect to database and register models
@@ -36,7 +30,7 @@ require('./models/User');
 //
 // serve static files
 ///////////////////////////////////////////////////////////
-app.use(express.static(path.join(__dirname, '../public')));
+// app.use(express.static(path.join(__dirname, '../public')));
 
 // web dependencies from node_modules
 app.use('/nm/bootstrap',    express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
@@ -44,7 +38,6 @@ app.use('/nm/jquery',       express.static(path.join(__dirname, '../node_modules
 app.use('/nm/popper.js',       express.static(path.join(__dirname, '../node_modules/popper.js/dist')));
 
 // Require Nuxt And Builder modules
-console.log('process.env.DEBUG', process.env.DEBUG);
 process.env.DEBUG = 'nuxt:*';
 const { Nuxt, Builder } = require('nuxt');
 
@@ -70,7 +63,7 @@ app.use('/apiv1/users',    require('./routes/apiv1/users').router);
 //
 // serve Web routes
 ///////////////////////////////////////////////////////////
-app.use('/',                require('./routes/index'));
+// app.use('/',                require('./routes/index'));
 app.use('/products',        require('./routes/products'));
 
 // Give nuxt middleware to express
