@@ -1,9 +1,6 @@
 {
-  "spec_dir": "build",
+  "spec_dir": "src",
   "spec_files": [
-    "**/*.[sS]pec.js"
-  ],
-  "helpers": [
-    "helpers/lib/jasmineHelpers/**/*.js"
+    "**/*.[sS]pec.ts"
   ]
 }

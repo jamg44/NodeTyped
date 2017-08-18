@@ -1,16 +1,16 @@
 {
   "name": "nodetyped",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Javier Miguel Gonzalez",
   "license": "MIT",
   "description": "A Node.js starter kit featuring Secuential Asynchrony (async/await), Express (Routing middlewares, Web, Api), Typescript, Mongoose, SCSS, EJS, Nodemon, Bootstrap 4, TSLint.",
   "scripts": {
     "clean": "rm -rf build node_modules",
     "start": "tsc && node ./build/www.js",
-    "dev": "concurrently 'tsc --watch' 'sleep 5;DEBUG=nodetyped:* nodemon'",
+    "dev": "nodemon --ext ts --watch src --exec './node_modules/.bin/ts-node' src/www.ts",
     "loadMocks": "tsc && node ./build/tasks/loadMocks.js",
     "lint": "tsconfig-lint",
-    "test": "concurrently 'tsc --watch' 'sleep 5;nodemon node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json'",
+    "test": "nodemon --ext ts --watch src --exec 'jasmine-ts' JASMINE_CONFIG_PATH=./jasmine.json",
     "doc": "tsc && node_modules/.bin/jsdoc --private --configure ./jsdocConfig.json"
   },
   "repository": {
@@ -57,11 +57,12 @@
     "@types/mongodb": "^2.2.2",
     "@types/mongoose": "^4.7.14",
     "@types/node": "^7.0.8",
-    "concurrently": "^3.4.0",
     "jasmine": "2.4.1",
+    "jasmine-ts": "^0.2.1",
     "jsdoc": "^3.4.0",
     "nodemon": "^1.11.0",
     "rewire": "^2.5.2",
+    "ts-node": "^3.3.0",
     "tsconfig-lint": "^0.11.0",
     "tslint": "^3.15.1",
     "typescript": "^2.3.4"
