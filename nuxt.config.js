@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 
+// Add bootstrap in webpack
+// https://github.com/nuxt/nuxt.js/issues/178
+
 module.exports = {
   /*
   ** Headers of the page
