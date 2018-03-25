@@ -2,9 +2,8 @@
 
 let mongoose = require('mongoose');
 let localConfig: any = require('../../localConfig');
-let conn = mongoose.connection;
 
-mongoose.Promise = global.Promise;
+export const conn = mongoose.connection;
 
 conn.on('error', function(err) {
     console.error('mongodb connection error:', err);
@@ -19,4 +18,4 @@ console.log(`Connecting to ${localConfig.MongodbConnection.uri} ...`);
 
 mongoose.connect(localConfig.MongodbConnection.uri, localConfig.MongodbConnection.options);
 
-export { conn };
+export default conn;

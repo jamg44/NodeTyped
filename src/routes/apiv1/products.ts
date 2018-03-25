@@ -1,7 +1,7 @@
 'use strict';
 
-let Product = require('../../models/Product');
 const router = require('express').Router();
+const { Product } = require('../../models');
 
 router.get('/', get);
 /**

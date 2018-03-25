@@ -1,7 +1,7 @@
 'use strict';
 
 const router = require('express').Router();
-import { User } from '../../models/User';
+import { User } from '../../models';
 
 router.get('/', get);
 /**

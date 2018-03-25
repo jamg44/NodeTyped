@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// app.use(logger('dev')); // moved below
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
@@ -29,9 +29,7 @@ app.use(require('node-sass-middleware')({
 //
 // connect to database and register models
 ///////////////////////////////////////////////////////////
-require('./lib/connectMongoose');
-require('./models/Product');
-require('./models/User');
+import { conn } from './models';
 
 //
 // serve static files
@@ -42,6 +40,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/nm/bootstrap',    express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
 app.use('/nm/jquery',       express.static(path.join(__dirname, '../node_modules/jquery/dist')));
 app.use('/nm/tether',       express.static(path.join(__dirname, '../node_modules/tether/dist')));
+
+// moved logger here to log next requests
+app.use(logger('dev'));
 
 //
 // serve API V1 routes

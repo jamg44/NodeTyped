@@ -1,15 +1,14 @@
 'use strict';
 
-// node_modules must use require
-let express = require('express');
-let router = express.Router();
+import * as express from 'express';
+import { promisify } from 'util';
+const readFile = promisify(require('fs').readFile);
+import { findConfigFileSync } from '../lib/utils';
 
-// other modules can use import (core api, our modules)
-import {readFile} from '../lib/nodeApi';
-import {findConfigFileSync} from '../lib/utils';
+const router = express.Router();
 
 router.get('/', async function (req, res, next) {
-    let title = 'NodeTyped Express';
+    const title = 'NodeTyped Express';
     try {
         // load a file asynchronously
         let fileName = findConfigFileSync('package.json');

@@ -1,9 +1,20 @@
 'use strict';
 
 import * as path from 'path';
-import {existsSync} from './nodeApi';
+import * as fs from 'fs';
+import { promisify } from 'util';
+const readFile = promisify(require('fs').readFile);
 
 let add = (a, b) => a + b;
+
+let existsSync = fs.existsSync || (filePath => {
+    try {
+        fs.statSync(filePath);
+    } catch (err) {
+        if (err.code === 'ENOENT') return false;
+    }
+    return true;
+});
 
 let findConfigFileSync = (configFileName, searchPath?) => {
     searchPath = searchPath || __dirname;
@@ -22,5 +33,5 @@ let findConfigFileSync = (configFileName, searchPath?) => {
 };
 
 export {
-    findConfigFileSync, add
+    findConfigFileSync, add, existsSync
 };

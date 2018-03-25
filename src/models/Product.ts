@@ -5,7 +5,7 @@
  * @module Product
  */
 
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 let schema = mongoose.Schema({
     name: { type: String, index: true },
@@ -30,18 +30,13 @@ schema.index({location: '2dsphere'});
 schema.statics.list = function(filter?: any,
                                skip?: number, limit?: number,
                                sort?: string, select?: string): Promise<any> {
-    try {
-        let query = Product.find(filter);
-        query.sort(sort);
-        query.skip(skip);
-        query.limit(limit);
-        query.select(select);
-        return query.exec();
-    } catch (err) {
-        return Promise.reject(err);
-    }
+    const query = Product.find(filter);
+    query.sort(sort);
+    query.skip(skip);
+    query.limit(limit);
+    query.select(select);
+    return query.exec();
 };
 
-var Product = mongoose.model('Product', schema);
-
-export = Product;
+export const Product = mongoose.model('Product', schema);
+export default Product;

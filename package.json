@@ -1,6 +1,6 @@
 {
   "name": "nodetyped",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "Javier Miguel Gonzalez",
   "license": "MIT",
   "description": "A Node.js starter kit featuring Secuential Asynchrony (async/await), Express (Routing middlewares, Web, Api), Typescript, Mongoose, SCSS, EJS, Nodemon, Bootstrap 4, TSLint.",
@@ -10,8 +10,7 @@
     "dev": "nodemon --ext ts --watch src --exec './node_modules/.bin/ts-node' src/www.ts",
     "loadMocks": "tsc && node ./build/tasks/loadMocks.js",
     "lint": "tsconfig-lint",
-    "test": "nodemon --ext ts --watch src --exec 'jasmine-ts' JASMINE_CONFIG_PATH=./jasmine.json",
-    "doc": "tsc && node_modules/.bin/jsdoc --private --configure ./jsdocConfig.json"
+    "doc": "typedoc --ignoreCompilerErrors --out ./doc src"
   },
   "repository": {
     "type": "git",
@@ -36,35 +35,27 @@
   "homepage": "https://github.com/jamg44/nodetyped#readme",
   "main": "build/www.js",
   "dependencies": {
-    "body-parser": "~1.16.0",
-    "bootstrap": "^4.0.0-alpha.6",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.0",
-    "ejs": "~2.5.5",
-    "express": "~4.14.1",
-    "jquery": "^3.1.0",
-    "mongoose": "^4.11.7",
-    "mongoose-class": "0.0.5",
-    "morgan": "~1.7.0",
-    "node-sass-middleware": "^0.9.8",
-    "serve-favicon": "~2.3.2",
-    "tether": "^1.4.0"
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.0.11",
+    "mongoose-class": "^0.1.1",
+    "morgan": "^1.9.0",
+    "node-sass-middleware": "^0.11.0",
+    "popper.js": "^1.14.1",
+    "serve-favicon": "^2.4.5",
+    "tether": "^1.4.3"
   },
   "devDependencies": {
-    "@types/body-parser": "^1.16.0",
-    "@types/express": "^4.0.35",
-    "@types/jasmine": "^2.2.33",
-    "@types/mongodb": "^2.2.2",
-    "@types/mongoose": "^4.7.20",
-    "@types/node": "^7.0.8",
-    "jasmine": "2.4.1",
-    "jasmine-ts": "^0.2.1",
-    "jsdoc": "^3.4.0",
-    "nodemon": "^1.11.0",
-    "rewire": "^2.5.2",
-    "ts-node": "^3.3.0",
-    "tsconfig-lint": "^0.11.0",
-    "tslint": "^3.15.1",
-    "typescript": "^2.3.4"
+    "@types/mongoose": "^5.0.7",
+    "@types/node": "^9.6.0",
+    "ts-node": "^5.0.1",
+    "tsconfig-lint": "^0.12.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.7.2"
   }
 }

@@ -5,32 +5,33 @@
  * @module User
  */
 
-import { Model as MongooseModel } from 'mongoose';
-import { Model, Column } from 'mongoose-class';
+const mongoose = require('mongoose');
 
-@Model({})
-export class User extends MongooseModel {
+let schema = new mongoose.Schema({
+    name: { type: String, index: true },
+    age: Number
+});
 
-    @Column({ type: String, index: true })
-    name: string;
+/**
+ * List of users
+ * @method list
+ * @param filter Object with filter conditions
+ * @param skip Number of rows skipped
+ * @param limit Number of rows
+ * @param sort Sort expression
+ * @param select Field names to include, space separated
+ * @return {Promise<any>}
+ */
+schema.statics.list = function(filter?: any,
+                               skip?: number, limit?: number,
+                               sort?: string, select?: string): Promise<any> {
+    const query = User.find(filter);
+    query.sort(sort);
+    query.skip(skip);
+    query.limit(limit);
+    query.select(select);
+    return query.exec();
+};
 
-    @Column(Number)
-    age: number;
-
-    static list(filter?: any,
-        skip?: number, limit?: number,
-        sort?: string, select?: string
-    ): Promise<any> {
-        let query = this.find(filter);
-        query.sort(sort);
-        query.skip(skip);
-        query.limit(limit);
-        query.select(select);
-        return query.exec();
-    }
-
-    greet() {
-        return `Hello I'm ${this.name}`;
-    }
-
-}
+export const User = mongoose.model('User', schema);
+export default User;

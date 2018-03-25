@@ -1,18 +1,15 @@
-
 # NodeTyped
 
 > A Node.js starter kit featuring ES6 with **Secuential Asynchrony (async/await)**,
 [Express](http://expressjs.com/) (Routing middlewares, Web, Api),
 [Typescript](http://www.typescriptlang.org/),
 [Mongoose](http://mongoosejs.com/),
-[MongooseClass](https://github.com/jamg44/mongoose-class),
 [SCSS](http://sass-lang.com/),
 [EJS](https://github.com/mde/ejs),
 [Nodemon](http://nodemon.io/),
-[Bootstrap 4](http://v4-alpha.getbootstrap.com/),
+[Bootstrap 4](https://getbootstrap.com/),
 [TSLint](https://palantir.github.io/tslint/),
-[Jasmine](http://jasmine.github.io/),
-[JsDoc](http://usejsdoc.org/),
+[TypeDoc](https://github.com/TypeStrong/typedoc),
 .
 
 * Simple npm setup and maintenance, without grunt/gulp/webpack/...
@@ -25,7 +22,7 @@ Example middleware:
 async function(req, res, next) {
     let title = 'NodeTyped Express';
     try {
-        let data = await readFile(file, 'utf-8'); // no callbacks!
+        let data = await readFile(file, 'utf-8');
         res.render('index', { title: title, dump: data });
     } catch (e) {
         next(e);
@@ -33,32 +30,9 @@ async function(req, res, next) {
 }
 ```
 
-Example model:
-
-```javascript
-@Model({})
-export class User extends MongooseModel {
-
-    @Column({ type: String, index: true })
-    name: string;
-
-    @Column(Number)
-    age: number;
-
-    static list(): Promise<any> {
-        return this.find().exec();
-    }
-
-    greet() {
-        return `Hello I'm ${this.name}`;
-    }
-
-}
-```
-
 ## Requirements
 
-**Make sure you have node version >= 4.0**
+Make sure **you have node version >= 8.0**
 
 ### Clone and Install dependencies
 
@@ -78,6 +52,7 @@ npm run dev
 ```
 
 If you want to use mongoose models, start mongodb, check localConfig.js and:
+
 ```bash
 # load sample products in database (defaults to 'test')
 npm run loadMocks
@@ -95,12 +70,14 @@ npm run dev
 ```
 
 Open the browser at:
- * http://localhost:3000
+
+* http://localhost:3000
 
 Start MongoDB, run 'npm run loadMocks', and check:
- * http://localhost:3000/products
- * http://localhost:3000/apiv1/products
- * http://localhost:3000/apiv1/products/near/(meters)/lon/(lon)/lat/(lat)
+
+* http://localhost:3000/products
+* http://localhost:3000/apiv1/products
+* http://localhost:3000/apiv1/products/near/(meters)/lon/(lon)/lat/(lat)
 
 As you save in your editor, the compiler will rebuild and restart the server.
 
@@ -142,22 +119,7 @@ npm start
 
 ## Recommendations
 
- * When requiring from _node_modules_ you must use require:
-
-```bash
-// require from /node_modules
-let express = require('express');
-```
-
- * With other module types you can use import (node api, created modules):
-
-```bash
-import * as fs from 'fs';
-import { findConfigFile } from '../lib/utils';
-```
-
-
- * To change project name update package.json
+* To change project name update package.json
 
 ```bash
 "name": "project_name", <-----
@@ -165,8 +127,7 @@ import { findConfigFile } from '../lib/utils';
 "dev": "tsc && DEBUG=project_name2:* ... <-----
 ```
 
-
- * All your reusable functions must return promises for better use with async/await.
+* All your functions should return promises for better use with async/await.
 
 ```bash
 let readFile = function(file, encoding) => {
@@ -183,17 +144,14 @@ let readFile = function(file, encoding) => {
 
 ## Roadmap (TODO)
 
- * API authentication with [JWT](https://jwt.io/)
- * Add SSL
- * Add cluster
- * User system (register, login, etc)
- * Add sequelize
- * Add test coverage report
- * Yeoman
- * Basic panel
+* API authentication with [JWT](https://jwt.io/)
+* Add cluster
+* User system (register, login, etc)
+* Add tests
+* Basic panel
 
+## License
 
-# License
  [MIT](/LICENSE)
 
 Made with ♡ by Javier Miguel González @javiermiguelg
